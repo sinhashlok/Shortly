@@ -12,9 +12,9 @@ const Goals = () => {
           statistics dashboard
         </p>
       </div>
-      <div className="flex flex-col md:flex-row mt-24 md:h-[350px]">
-        <div className="bg-white md:w-1/3 p-8 rounded-lg mb-20 md:mb-0 md:mr-8 h-[250px] z-10 text-center md:text-left">
-          <div className="bg-[#3b3054] w-20 p-6 rounded-full -mt-16 ml-28 md:ml-0">
+      <div className="flex flex-col md:flex-row mt-24 md:h-[350px] mb-20">
+        <div className="bg-white md:w-1/3 p-8 rounded-lg mb-20 md:mb-0 md:mr-8 h-fit z-10 text-center md:text-left">
+          <div className="bg-[#3b3054] w-20 p-6 rounded-full -mt-16 mx-auto">
             <img src={BRAND_RECOGNITION} alt="Brand Recognition" />
           </div>
           <div>
@@ -28,8 +28,8 @@ const Goals = () => {
             </h2>
           </div>
         </div>
-        <div className="bg-white md:w-1/3 p-8 rounded-lg mb-20 md:mr-8 h-[250px] md:my-auto z-10 text-center md:text-left">
-          <div className="bg-[#3b3054] w-20 p-6 rounded-full -mt-16 ml-28 md:ml-0">
+        <div className="bg-white md:w-1/3 p-8 rounded-lg mb-20 md:mr-8 h-fit md:my-auto z-10 text-center md:text-left">
+          <div className="bg-[#3b3054] w-20 p-6 rounded-full -mt-16 mx-auto">
             <img src={FULLY_CUSTOMIZABLE} alt="Brand Recognition" />
           </div>
           <div>
@@ -43,8 +43,8 @@ const Goals = () => {
             </h2>
           </div>
         </div>
-        <div className="bg-white md:w-1/3 p-8 rounded-lg h-[250px] mt-auto z-10 text-center md:text-left">
-          <div className="bg-[#3b3054] w-20 p-6 rounded-full -mt-16 ml-28 md:ml-0">
+        <div className="bg-white md:w-1/3 p-8 rounded-lg h-fit mt-auto z-10 text-center md:text-left">
+          <div className="bg-[#3b3054] w-20 p-6 rounded-full -mt-16 mx-auto">
             <img src={DETAILED_RECORDS} alt="Brand Recognition" />
           </div>
           <div>
@@ -57,8 +57,8 @@ const Goals = () => {
             </h2>
           </div>
         </div>
-        <div className="bg-[#2acfcf] h-2 w-2/3 absolute mt-40 z-0"></div>
-        <div className="bg-[#2acfcf] h-2/3 w-2 ml-[180px] absolute mt-40 z-0 md:hidden"></div>
+        <div className="bg-[#2acfcf] h-2 w-2/3 absolute mt-40  z-0"></div>
+        <div className="bg-[#2acfcf] h-5/6 w-2 ml-[45%] absolute mt-40  z-0 md:hidden"></div>
       </div>
     </div>
   );

@@ -1,5 +1,7 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import checkValidURL from "../utils/validate";
+import axios from "axios";
+
 
 const Shorten = () => {
   const shortenItURL = useRef(null);
@@ -7,32 +9,9 @@ const Shorten = () => {
     code: false,
     message: null,
   });
-  const [urls, setUrls] = useState([
-    {
-      original: "https://twitter.com/frontendmetor",
-      shortened: "https://rel.ink/k4lkyk",
-    },
-    {
-      original: "https://twitter.com/frontendmetor",
-      shortened: "https://rel.ink/k4lkyk",
-    },
-    {
-      original: "https://twitter.com/frontendmetor",
-      shortened: "https://rel.ink/k4lkyk",
-    },
-    {
-      original: "https://twitter.com/frontendmetor",
-      shortened: "https://rel.ink/k4lkyk",
-    },
-    {
-      original: "https://twitter.com/frontendmetor",
-      shortened: "https://rel.ink/k4lkyk",
-    },
-    {
-      original: "https://twitter.com/frontendmetor",
-      shortened: "https://rel.ink/k4lkyk",
-    },
-  ]);
+  const [id, setId] = useState(-1);
+  const [copied, setCopied] = useState(-1);
+  const [urls, setUrls] = useState([]);
   const handleShortenItClick = () => {
     const error = checkValidURL(shortenItURL?.current?.value);
 
@@ -43,29 +22,64 @@ const Shorten = () => {
       });
     setError(false);
 
-    // const fetchShortenURL = async () => {
-    //   const url = JSON.stringify({ url: shortenItURL?.current?.value });
-    //   const data = await fetch("https://cleanuri.com/api/v1/shorten", {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify(url),
-    //   });
-    //   const res = await data.json();
-    //   console.log(res);
-    // };
-    // fetchShortenURL();
+    const fetchShortenURL =  () => {
+      const url = shortenItURL?.current?.value;
+      axios
+        .post(
+          "https://cleanuri.com/api/v1/shorten",
+          { url },
+          {
+            headers: {
+              "Access-Control-Allow-Origin": "*", // Allow requests from any origin
+              "Access-Control-Allow-Methods": "POST", // Allow POST requests
+              "Access-Control-Allow-Headers": "Content-Type", // Allow Content-Type header
+              "Content-Type": "application/json", // Set Content-Type header
+            },
+          }
+        )
+        .then((res) => {
+          setUrls([
+            ...urls,
+            {
+              id: id + 1,
+              original: shortenItURL?.current?.value,
+              shortened: res?.data?.result_url,
+            },
+          ]);
+          setId(id + 1);
+          localStorage.setItem(
+            "urlLinks",
+            JSON.stringify([
+              ...urls,
+              {
+                id: id + 1,
+                original: shortenItURL?.current?.value,
+                shortened: res?.data?.result_url,
+              },
+            ])
+          );
+        })
+        .catch((err) => {
+          setError({
+            code: true,
+            message: "Invalid URL. Please try again.",
+          });
+        });
+    };
 
-    setUrls([
-      ...urls,
-      {
-        original: shortenItURL?.current?.value,
-        shortened: "https://rel.wfwwf/k4lKyk",
-      },
-    ]);
-    console.log(urls);
+    fetchShortenURL();
   };
+
+  const handleCopyClick = (id) => {
+    navigator.clipboard.writeText(urls[id].shortened);
+    setCopied(id);
+  };
+
+  useEffect(() => {
+    if (localStorage.getItem("urlLinks") !== null) {
+      setUrls(JSON.parse(localStorage.getItem("urlLinks")));
+    }
+  }, []);
 
   return (
     <div className="flex flex-col items-center justify-between p-4 md:p-8 md:px-12 lg:p-12 lg:px-[12%] bg-[#dbd8e6] mt-40">
@@ -93,9 +107,9 @@ const Shorten = () => {
         </button>
       </div>
       <div className="w-full max-h-[500px] overflow-clip overflow-y-scroll mb-16">
-        {urls.map((url, index) => (
+        {urls.map((url, id) => (
           <div
-            key={index}
+            key={id}
             className="flex flex-col md:flex-row md:items-center justify-between w-full rounded-md md:p-6 bg-white text-[18px] my-4"
           >
             <div className="overflow-clip m-6 mx-8 md:m-0">{url.original}</div>
@@ -104,8 +118,13 @@ const Shorten = () => {
               <div className="text-[#2acfcf] mx-8 mt-4 md:m-0 md:mr-4">
                 {url.shortened}
               </div>
-              <button className="text-white text-[16px] bg-[#2acfcf] mx-8 my-4 md:m-0 rounded-md px-8 py-2">
-                Copy
+              <button
+                className={`text-white text-[16px] ${
+                  copied === id ? "bg-[#3b3054] px-6" : "bg-[#2acfcf] px-8"
+                }  mx-8 my-4 md:m-0 rounded-md  py-3`}
+                onClick={() => handleCopyClick(id)}
+              >
+                {copied === id ? "Copied!" : "Copy"}
               </button>
             </div>
           </div>
