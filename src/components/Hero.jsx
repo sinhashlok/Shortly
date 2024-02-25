@@ -11,7 +11,7 @@ const Hero = () => {
           Build your brand's recognition and get detailed insights on how your
           links are preforming
         </h4>
-        <button className="text-[20px] md:text-[14px] lg:text-[20px] text-white font-bold py-4 px-10 md:py-2 md:px-6 lg:py-4 lg:px-10 mt-4 lg:mt-12 bg-[#2acfcf] rounded-full hover:opacity-50">
+        <button className="text-[20px] md:text-[14px] lg:text-[20px] text-white font-bold py-4 px-10 md:py-2 md:px-6 lg:py-4 lg:px-10 mt-4 lg:mt-12 bg-[#2acfcf] rounded-full hover:bg-[#82eeee]">
           Get Started
         </button>
       </div>

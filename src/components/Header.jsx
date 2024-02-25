@@ -1,5 +1,7 @@
-import MenuIcon from "@mui/icons-material/Menu";
 import { useState } from "react";
+import { Fade as Hamburger } from "hamburger-react";
+
+import LOGO from "../assets/images/logo.svg";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
@@ -10,7 +12,9 @@ const Header = () => {
   return (
     <div className="flex items-center justify-between p-4 md:p-8 md:px-12 lg:p-12 lg:px-[12%]">
       <div className="flex items-center md:w-[380px] lg:w-[440px]">
-        <h1 className="text-[32px] font-bold md:mr-4 lg:mr-10">Shortly</h1>
+        <h1 className="md:mr-4 lg:mr-10">
+          <img src={LOGO} alt="logo" className="w-[100px] md:w-[180px]" />
+        </h1>
         <div className="hidden md:flex justify-between w-full">
           <h3 className="text-[16px] text-[#bfbfbf] font-bold hover:text-black cursor-pointer">
             Features
@@ -32,7 +36,7 @@ const Header = () => {
         </button>
       </div>
       <div className="flex sm:hidden text-[#bfbfbf]" onClick={handleMenuClick}>
-        <MenuIcon fontSize="large" />
+        <Hamburger />
       </div>
       {open && (
         <div className="md:hidden absolute bg-[#3b3054] w-[92%] mt-[440px] rounded-lg p-6 px-8">
@@ -52,7 +56,7 @@ const Header = () => {
             <span className="text-[16px] text-white font-medium p-4">
               Login
             </span>
-            <button className="text-[16px] text-white font-bold w-full py-2 m-4 bg-[#2acfcf] rounded-full hover:opacity-50">
+            <button className="text-[16px] text-white font-bold w-full py-2 m-4 bg-[#2acfcf] rounded-full hover:bg-[#82eeee]">
               Sign Up
             </button>
           </div>
