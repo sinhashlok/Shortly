@@ -10,24 +10,24 @@ const Header = () => {
   return (
     <div className="flex items-center justify-between p-4 md:p-8 md:px-12 lg:p-12 lg:px-[12%]">
       <div className="flex items-center md:w-[380px] lg:w-[440px]">
-        <h1 className="text-[32px] font-[700] md:mr-4 lg:mr-10">Shortly</h1>
+        <h1 className="text-[32px] font-bold md:mr-4 lg:mr-10">Shortly</h1>
         <div className="hidden md:flex justify-between w-full">
-          <h3 className="text-[16px] text-[#bfbfbf] font-[700] hover:text-black cursor-pointer">
+          <h3 className="text-[16px] text-[#bfbfbf] font-bold hover:text-black cursor-pointer">
             Features
           </h3>
-          <h3 className="text-[16px] text-[#bfbfbf] font-[700] hover:text-black cursor-pointer">
+          <h3 className="text-[16px] text-[#bfbfbf] font-bold hover:text-black cursor-pointer">
             Pricing
           </h3>
-          <h3 className="text-[16px] text-[#bfbfbf] font-[700] hover:text-black cursor-pointer">
+          <h3 className="text-[16px] text-[#bfbfbf] font-bold hover:text-black cursor-pointer">
             Resources
           </h3>
         </div>
       </div>
       <div className="hidden md:flex items-center justify-between">
-        <h3 className="text-[16px] text-[#bfbfbf] font-[700] md:mr-4 lg:mr-10 hover:text-black cursor-pointer">
+        <h3 className="text-[16px] text-[#bfbfbf] font-bold md:mr-4 lg:mr-10 hover:text-black cursor-pointer">
           Login
         </h3>
-        <button className="text-[16px] text-white font-[700] py-2 px-6 bg-[#2acfcf] rounded-full hover:opacity-50">
+        <button className="text-[16px] text-white font-bold py-2 px-6 bg-[#2acfcf] rounded-full hover:opacity-50">
           Sign Up
         </button>
       </div>
@@ -52,7 +52,7 @@ const Header = () => {
             <span className="text-[16px] text-white font-medium p-4">
               Login
             </span>
-            <button className="text-[16px] text-white font-[700] w-full py-2 m-4 bg-[#2acfcf] rounded-full hover:opacity-50">
+            <button className="text-[16px] text-white font-bold w-full py-2 m-4 bg-[#2acfcf] rounded-full hover:opacity-50">
               Sign Up
             </button>
           </div>
