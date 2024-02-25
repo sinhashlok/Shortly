@@ -92,7 +92,7 @@ const Shorten = () => {
           Shorten It!
         </button>
       </div>
-      <div className="w-full max-h-[500px] overflow-clip overflow-y-scroll mb-12">
+      <div className="w-full max-h-[500px] overflow-clip overflow-y-scroll mb-16">
         {urls.map((url, index) => (
           <div
             key={index}
