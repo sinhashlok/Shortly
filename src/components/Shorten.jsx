@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import checkValidURL from "../utils/validate";
 import axios from "axios";
 
-
 const Shorten = () => {
   const shortenItURL = useRef(null);
   const [error, setError] = useState({
@@ -22,28 +21,19 @@ const Shorten = () => {
       });
     setError(false);
 
-    const fetchShortenURL =  () => {
+    const fetchShortenURL = () => {
       const url = shortenItURL?.current?.value;
+
       axios
-        .post(
-          "https://cleanuri.com/api/v1/shorten",
-          { url },
-          {
-            headers: {
-              "Access-Control-Allow-Origin": "*", // Allow requests from any origin
-              "Access-Control-Allow-Methods": "POST", // Allow POST requests
-              "Access-Control-Allow-Headers": "Content-Type", // Allow Content-Type header
-              "Content-Type": "application/json", // Set Content-Type header
-            },
-          }
-        )
+        .get("https://tinyurl.com/api-create.php?url=" + url)
         .then((res) => {
+          console.log(res?.data);
           setUrls([
             ...urls,
             {
               id: id + 1,
               original: shortenItURL?.current?.value,
-              shortened: res?.data?.result_url,
+              shortened: res?.data,
             },
           ]);
           setId(id + 1);
@@ -54,7 +44,7 @@ const Shorten = () => {
               {
                 id: id + 1,
                 original: shortenItURL?.current?.value,
-                shortened: res?.data?.result_url,
+                shortened: res?.data,
               },
             ])
           );
