@@ -1,6 +1,6 @@
 # URL Shortener
 
-Live Link: <a href="https://app.netlify.com/sites/fabulous-heliotrope-b5c949/overview" alt="live-link" _target="blank">Live Link</a>
+Live Link: <a href="https://fabulous-heliotrope-b5c949.netlify.app/" alt="live-link" _target="blank">Live Link</a>
 <br>
 This is a Frontend Mentor challenge: <a href="https://cleanuri.com/MYoZyl" alt="challenge link" _target="blank">URL shortening API landing page
 </a>
