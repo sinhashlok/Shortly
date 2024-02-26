@@ -15,7 +15,7 @@ const Goals = () => {
       <div className="flex flex-col md:flex-row mt-24 md:h-[350px] mb-20">
         <div className="bg-white md:w-1/3 p-8 rounded-lg mb-20 md:mb-0 md:mr-8 h-fit z-10 text-center md:text-left">
           <div className="bg-[#3b3054] w-20 p-6 rounded-full -mt-16 mx-auto">
-            <img src={BRAND_RECOGNITION} alt="Brand Recognition" />
+            <img src={BRAND_RECOGNITION} alt="Brand-Recognition" />
           </div>
           <div>
             <h1 className="mt-6 font-bold text-[24px] text-[#35323e]">
@@ -30,7 +30,7 @@ const Goals = () => {
         </div>
         <div className="bg-white md:w-1/3 p-8 rounded-lg mb-20 md:mr-8 h-fit md:my-auto z-10 text-center md:text-left">
           <div className="bg-[#3b3054] w-20 p-6 rounded-full -mt-16 mx-auto">
-            <img src={FULLY_CUSTOMIZABLE} alt="Brand Recognition" />
+            <img src={DETAILED_RECORDS} alt="Detailed-Records" />
           </div>
           <div>
             <h1 className="mt-6 font-bold text-[24px] text-[#35323e]">
@@ -45,7 +45,7 @@ const Goals = () => {
         </div>
         <div className="bg-white md:w-1/3 p-8 rounded-lg h-fit mt-auto z-10 text-center md:text-left">
           <div className="bg-[#3b3054] w-20 p-6 rounded-full -mt-16 mx-auto">
-            <img src={DETAILED_RECORDS} alt="Brand Recognition" />
+            <img src={FULLY_CUSTOMIZABLE} alt="Fully-Customizable" />
           </div>
           <div>
             <h1 className="mt-6 font-bold text-[24px] text-[#35323e]">
